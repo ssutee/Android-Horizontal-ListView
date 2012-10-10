@@ -39,13 +39,13 @@ import android.view.GestureDetector.OnGestureListener;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ListAdapter;
+import android.widget.BaseAdapter;
 import android.widget.Scroller;
 
-public class HorizontalListView extends AdapterView<ListAdapter> {
+public class HorizontalListView extends AdapterView<BaseAdapter> {
 
 	public boolean mAlwaysOverrideTouch = true;
-	protected ListAdapter mAdapter;
+	protected BaseAdapter mAdapter;
 	private int mLeftViewIndex = -1;
 	private int mRightViewIndex = 0;
 	protected int mCurrentX;
@@ -114,7 +114,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
 	};
 
 	@Override
-	public ListAdapter getAdapter() {
+	public BaseAdapter getAdapter() {
 		return mAdapter;
 	}
 
@@ -125,7 +125,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
 	}
 
 	@Override
-	public void setAdapter(ListAdapter adapter) {
+	public void setAdapter(BaseAdapter adapter) {
 		if(mAdapter != null) {
 			mAdapter.unregisterDataSetObserver(mDataObserver);
 		}
